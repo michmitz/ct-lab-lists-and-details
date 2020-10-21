@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class ListPage extends Component {
   state = {
@@ -8,6 +9,7 @@ export default class ListPage extends Component {
   handleClick = () => {
     fetch('https://xfiles-api.herokuapp.com/api/v1/characters?category=Main_characters')
     .then(res => res.json())
+    // .then(json => console.log(json))
     .then(json =>
       this.setState({ 
         characters: json.results 
@@ -22,7 +24,7 @@ export default class ListPage extends Component {
         <div id="list-display">
           {
             characters.map(character => {
-              return <li>{character.name}</li>
+              return <li key={character.name}>{character.name}</li>
             })
           }
         </div>
