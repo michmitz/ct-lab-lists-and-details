@@ -24,7 +24,9 @@ export default class ListPage extends Component {
         <div id="list-display">
           {
             characters.map(character => {
-              return <li key={character.name}>{character.name}</li>
+              return <Link key={character.name} to={`/${character.name}`}>
+                <li key={character.name}>{character.name}</li>
+              </Link>
             })
           }
         </div>
